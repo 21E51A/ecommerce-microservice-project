@@ -1,0 +1,15 @@
+# Terraform
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfvars
+terraform.tfvars
+crash.log
+.override.tf
+.override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform lock file (optional but usually kept)
+# Uncomment next line if you want to ignore it
+# .terraform.lock.hcl
