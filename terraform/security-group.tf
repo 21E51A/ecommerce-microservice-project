@@ -10,7 +10,7 @@ resource "aws_security_group" "bastion_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]  # MATCH OLD RULE FOR NOW
+    cidr_blocks = ["0.0.0.0/0"] # MATCH OLD RULE FOR NOW
   }
 
   egress {
@@ -56,27 +56,20 @@ resource "aws_security_group" "backend_sg" {
 }
 
 resource "aws_security_group" "rds_sg" {
-  name        = "rds-postgres-sg"
-  description = "Allow PostgreSQL access only from backend servers"
-  vpc_id      = aws_vpc.main.id
+  name   = "rds-mysql-sg"
+  vpc_id = aws_vpc.main.id
 
-  # Allow Postgres access only from backend
   ingress {
-    from_port       = 3306
-    to_port         = 3306
-    protocol        = "tcp"
-    security_groups = [aws_security_group.backend_sg.id]
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # ⚠️ only for learning
   }
 
-  # Allow all outbound traffic
   egress {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  tags = {
-    Name = "rds-mysql-sg"
   }
 }

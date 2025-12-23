@@ -1,11 +1,8 @@
-resource "aws_db_subnet_group" "rds_private_subnet_group" {
-  name       = "rds-private-subnet-group"
-  subnet_ids = [
-    aws_subnet.private_a.id,
-    aws_subnet.private_b.id
-  ]
+resource "aws_db_subnet_group" "rds_public_subnet_group" {
+  name = "rds-subnet-group"
 
-  tags = {
-    Name = "rds-private-subnet-group"
-  }
+  subnet_ids = [
+    aws_subnet.public_a.id,
+    aws_subnet.public_b.id
+  ]
 }

@@ -11,9 +11,8 @@ variable "vpc_cidr" {
 }
 
 
-
 variable "db_name" {
-  default = "appdb"
+  default = "ecommerce"
 }
 
 variable "db_username" {
@@ -21,5 +20,6 @@ variable "db_username" {
 }
 
 variable "db_password" {
-  sensitive = true
+  description = "RDS master password"
+  sensitive   = true
 }
