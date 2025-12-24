@@ -5,10 +5,18 @@
 *.tfvars
 terraform.tfvars
 crash.log
+node_modules/
 .override.tf
 .override.tf.json
 *_override.tf
 *_override.tf.json
+*.tfstate
+.env
+npm-debug.log
+*.tfstate.backup
+.terraform/
+
+
 
 # Terraform lock file (optional but usually kept)
 # Uncomment next line if you want to ignore it
