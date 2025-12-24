@@ -5,4 +5,5 @@ RUN npm install
 COPY . .
 EXPOSE 5000
 CMD ["npm", "start"]
-CMD ["node", "server.js"]
+CMD ["node", "src/server.js"]
+

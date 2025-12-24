@@ -1,20 +1,20 @@
 const app = require("./app");
-const sequelize = require("./config/db");
+const db = require("./models");
 
 const PORT = process.env.PORT || 5000;
 
-(async () => {
-  try {
-    await sequelize.authenticate();
-    console.log("✅ Database connected");
-
-    await sequelize.sync({ alter: true });
-    console.log("✅ Tables synced");
-
+db.sequelize
+  .authenticate()
+  .then(() => {
+    console.log("✅ RDS MySQL connected");
+    return db.sequelize.sync();
+  })
+  .then(() => {
     app.listen(PORT, () => {
       console.log(`🚀 Backend running on port ${PORT}`);
     });
-  } catch (error) {
-    console.error("❌ Startup failed:", error);
-  }
-})();
+  })
+  .catch((err) => {
+    console.error("❌ DB connection failed:", err);
+  });
+

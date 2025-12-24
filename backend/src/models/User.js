@@ -1,16 +1,12 @@
-const { DataTypes } = require("sequelize");
 const sequelize = require("../config/db");
 
-const User = sequelize.define("User", {
-  name: DataTypes.STRING,
-  email: { type: DataTypes.STRING, unique: true },
-  password: DataTypes.STRING,
+const User = require("./User");
+const Product = require("./Product");
 
-  // 👇 REQUIRED FOR ADMIN
-  role: {
-    type: DataTypes.STRING,
-    defaultValue: "user" // user | admin
-  }
-});
+const db = {};
+db.sequelize = sequelize;
+db.User = User;
+db.Product = Product;
 
-module.exports = User;
+module.exports = db;
+
