@@ -12,7 +12,7 @@ variable "vpc_cidr" {
 
 
 variable "db_name" {
-  default = "ecommerce"
+  default = "rds"
 }
 
 variable "db_username" {

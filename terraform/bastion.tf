@@ -9,7 +9,7 @@ resource "aws_instance" "bastion" {
     Name = "bastion-host"
   }
 }
-/* 
+
 resource "aws_instance" "backend" {
   ami = "ami-068c0051b15cdb816"
   instance_type          = "c7i-flex.large"
@@ -19,4 +19,4 @@ resource "aws_instance" "backend" {
   tags = {
     Name = "backend"
   }
-} */
+}
